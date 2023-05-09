@@ -1,11 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import FreeChoiceQuestion from '../components/multipe-choice'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./App.css";
+import "./index.css"
+import Sorting from "../components/sorting";
+
+// import ParentComponent from "../components/dandD/ParentComponent";
+import DragDropExample from "../components/DragAndDrop";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <FreeChoiceQuestion />
-  </React.StrictMode>
+  <>
+    <Sorting />
+    <DragDropExample />
+  </>
 );
