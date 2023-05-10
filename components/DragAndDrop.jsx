@@ -8,9 +8,9 @@ const App = () => {
     { id: 4, text: "Girl" },
   ]);
 
-  // const [isCorrect, setIsCorrect] = useState(null);
-
   const [droppedItems, setDroppedItems] = useState([]);
+
+  const [isCorrect, setIsCorrect] = useState(null);
 
   const handleDragStart = (e, id) => {
     e.dataTransfer.setData("id", id);
@@ -29,16 +29,18 @@ const App = () => {
     );
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   const isAllCorrect = items.every(
-  //     (ans, index) => ans === droppedItems[index]
-  //   );
-  //   // console.log(answer);
-
-  //   setIsCorrect(isAllCorrect);
-  // };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const userAnswers = droppedItems.map((item) => {
+      return item.text;
+    });
+    console.log(userAnswers);
+    const correctAnswers = ["Man", "Women", "Boy", "Girl"];
+    const isAllCorrect = userAnswers.every(
+      (ans, index) => ans === correctAnswers[index]
+    );
+    setIsCorrect(isAllCorrect);
+  };
 
   return (
     <>
@@ -50,7 +52,7 @@ const App = () => {
           margin: "50px",
         }}
       >
-        <div onDrop={handleDrop} onDragOver={handleDragOver}>
+        <div>
           {/* <h2>Drag Items:</h2> */}
           {items.map((item) => (
             <div
@@ -63,7 +65,7 @@ const App = () => {
                 display: "inline-block",
                 padding: "5px",
                 margin: "5px",
-                border:"1px solid red"
+                border: "1px solid red",
               }}
             >
               {item.text}
@@ -85,8 +87,8 @@ const App = () => {
           </div>
           <div
             style={{
-              width: "200px",
-              border: "1px solid red",
+              width: "100px",
+              border: "1px solid white",
               padding: "10px",
             }}
             onDrop={handleDrop}
@@ -104,10 +106,10 @@ const App = () => {
           </div>
         </div>
       </div>
-      {/* <button onClick={handleSubmit}>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
       {isCorrect !== null && (
         <p>{isCorrect ? "Correct!" : "Incorrect, try again."}</p>
-      )} */}
+      )}
     </>
   );
 };
