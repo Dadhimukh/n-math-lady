@@ -21,17 +21,16 @@
       event.preventDefault();
 
       const isAllCorrect = users.every((ans, index) => ans === answer[index]);
-      // console.log(answer);
 
       setIsCorrect(isAllCorrect);
    };
 
    return (
       <div>
-         <span>Red -> </span>
-         <span>Green -> </span>
-         <span>Blue -> </span>
-         <span>Black -> </span>
+         <span>Red -- </span>
+         <span>Green -- </span>
+         <span>Blue -- </span>
+         <span>Black -- </span>
          <span>Yellow </span>
 
          <DragDropContext onDragEnd={handleDragEnd}>
