@@ -8,7 +8,7 @@ const userData = ["Red", "Yellow", "Blue", "Green", "Black"];
 // Creating an array of correct color order
 const answer = ["Red", "Green", "Blue", "Black", "Yellow"];
 
-export default function Sorting() {
+function Sorting() {
   // Initializing state for users array and whether the sorting is correct or not
   const [users, setUsers] = useState(userData);
   const [isCorrect, setIsCorrect] = useState(null);
@@ -103,3 +103,5 @@ export default function Sorting() {
     </div>
   );
 }
+
+export default Sorting;

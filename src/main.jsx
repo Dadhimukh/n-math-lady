@@ -7,7 +7,7 @@ import FreeChoiceQuestion from "../components/FreeChoiceQuestion";
 import FillInTheBlankQuestion from "../components/FillInTheBlankQuestion";
 import SingleChoiceQuestion from "../components/SingleChoiceQuestion";
 import MultipleChoiceQuestion from "../components/MultipleChoiceQuestion";
-import Sorting from "../components/sorting";
+import Sorting from "../components/Sorting";
 import DragDropExample from "../components/DragAndDrop";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

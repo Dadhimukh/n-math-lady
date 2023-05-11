@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const App = () => {
+const DragDropExample = () => {
   // state variables for the items to drag, dropped items, and correctness of the answers
   const [items, setItems] = useState([
     { id: 1, text: "Boy" },
@@ -49,7 +49,7 @@ const App = () => {
     const userAnswers = droppedItems.map((item) => {
       return item.text;
     });
-    console.log(userAnswers);
+    // console.log(userAnswers);
 
     // define the correct answers array
     const correctAnswers = ["Man", "Women", "Boy", "Girl"];
@@ -138,4 +138,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default DragDropExample;
