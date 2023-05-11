@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const App = () => {
+  // state variables for the items to drag, dropped items, and correctness of the answers
   const [items, setItems] = useState([
     { id: 1, text: "Boy" },
     { id: 2, text: "Women" },
@@ -9,7 +10,6 @@ const App = () => {
   ]);
 
   const [droppedItems, setDroppedItems] = useState([]);
-
   const [isCorrect, setIsCorrect] = useState(null);
 
   // function to handle drag start on an item
@@ -28,10 +28,13 @@ const App = () => {
   const handleDrop = (e) => {
     // get the id of the dropped item from the dataTransfer object
     const id = e.dataTransfer.getData("id");
+
     // find the item with that id from the items array
     const item = items.find((item) => item.id === parseInt(id));
+
     // add the dropped item to the droppedItems array
     setDroppedItems((prevState) => [...prevState, item]);
+
     // remove the dropped item from the items array
     setItems((prevState) =>
       prevState.filter((item) => item.id !== parseInt(id))
@@ -41,17 +44,21 @@ const App = () => {
   // function to handle submission of the dropped items
   const handleSubmit = (event) => {
     event.preventDefault();
+
     // get the text values of the dropped items in an array
     const userAnswers = droppedItems.map((item) => {
       return item.text;
     });
     console.log(userAnswers);
+
     // define the correct answers array
     const correctAnswers = ["Man", "Women", "Boy", "Girl"];
+
     // check if all the dropped items are in the correct order
     const isAllCorrect = userAnswers.every(
       (ans, index) => ans === correctAnswers[index]
     );
+
     // set the correctness state variable
     setIsCorrect(isAllCorrect);
   };
@@ -126,6 +133,7 @@ const App = () => {
       {isCorrect !== null && (
         <p>{isCorrect ? "Correct!" : "Incorrect, try again."}</p>
       )}
+      <hr />
     </>
   );
 };
